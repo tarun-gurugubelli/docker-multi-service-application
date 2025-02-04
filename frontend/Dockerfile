@@ -1,10 +1,10 @@
 # Stage 1: Build
 FROM node:16 as build
 WORKDIR /app
-COPY package.json yarn.lock ./
-RUN yarn install
+COPY package.json ./
+RUN npm install
 COPY . .
-RUN yarn build
+RUN npm build
 
 # Stage 2: Serve
 FROM nginx:alpine
